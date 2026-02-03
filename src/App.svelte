@@ -147,8 +147,11 @@
         + Add Option
       </button>
     {/if}
+    
   </div>
-<FooterButtons />
+  <div class="absolute bottom-4 w-full">
+    <FooterButtons />
+  </div>
 </main>
     
   
