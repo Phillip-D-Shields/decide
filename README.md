@@ -1,4 +1,4 @@
-# Decide 🧠
+# Decide 🎰
 
 A simple, decision maker for when you just can't or won't.
 
