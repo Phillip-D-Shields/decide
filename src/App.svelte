@@ -148,11 +148,7 @@
       </button>
     {/if}
   </div>
-
+<FooterButtons />
 </main>
-  <footer
-    class="absolute bottom-4 w-full text-center text-[10px] text-gray-500 uppercase tracking-widest"
-  >
-    © 2026 <a href="https://digiwha-labs.com" target="_blank" rel="noreferrer noopener" >Digiwha Labs</a> // Neural Link Established
-    <FooterButtons />
-  </footer>
+    
+  
