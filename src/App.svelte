@@ -14,13 +14,12 @@
   // Slot Machine Logic State
   let reelList = $state([]); 
   let translateY = $state(0); 
-  let transitionDuration = $state(0); // speed (0 for reset, 3s for spin)
+  let transitionDuration = $state(0); 
   
-  const ITEM_HEIGHT = 80; // Height of each slot item in pixels (must match CSS)
+  const ITEM_HEIGHT = 80; 
 
   let validOptions = $derived(options.filter(o => o.text.trim() !== ''));
   let canSpin = $derived(validOptions.length >= 2 && !isSpinning);
-
 
   function addOption() {
     if (options.length < 10) {
@@ -38,7 +37,6 @@
     if (!canSpin) return;
     
     isSpinning = true;
-    
 
     const repeatCount = 50; 
     reelList = Array(repeatCount).fill(validOptions).flat();
@@ -52,7 +50,6 @@
     const randomOffset = Math.floor(Math.random() * validOptions.length);
     const winningIndex = startIndexForWinners + randomOffset;
 
-    // Calculate pixel distance to slide up
     const finalPosition = winningIndex * ITEM_HEIGHT;
 
     transitionDuration = 3000; 
@@ -64,13 +61,13 @@
   }
 </script>
 
-<main class="min-h-screen bg-base-200 flex flex-col items-center py-10 gap-8 px-4 font-sans">
+<main class="min-h-[100dvh] bg-base-200 flex flex-col items-center py-4 md:py-10 gap-4 md:gap-8 px-4 font-sans">
   
   <div class="text-center">
-    <h1 class="text-4xl font-black text-primary tracking-tight">DECIDE</h1>
+    <h1 class="text-3xl md:text-4xl font-black text-primary tracking-tight">DECIDE</h1>
   </div>
 
-  <div class="relative p-4 bg-neutral rounded-3xl shadow-2xl border-4 border-base-content/10">
+  <div class="relative p-2 md:p-4 bg-neutral rounded-3xl shadow-2xl border-4 border-base-content/10">
     
     <div class="relative w-64 h-20 bg-base-100 rounded-xl overflow-hidden border-2 border-primary/20 shadow-inner">
         
@@ -115,9 +112,9 @@
       {isSpinning ? 'Rolling...' : 'PULL LEVER'}
     </button>
 
-    <div class="divider text-xs opacity-50">EDIT OPTIONS</div>
+    <div class="divider text-xs opacity-50 my-0">EDIT OPTIONS</div>
 
-    <div class="flex flex-col gap-2 max-h-60 overflow-y-auto px-1">
+    <div class="flex flex-col gap-2 max-h-52 md:max-h-60 overflow-y-auto px-1">
       {#each options as option (option.id)}
         <div class="flex gap-2 animate-fade-in-up">
           <input 
@@ -149,9 +146,8 @@
     {/if}
     
   </div>
-  <div class="absolute bottom-4 w-full">
+
+  <div class="w-full mt-auto pt-4 pb-2">
     <FooterButtons />
   </div>
 </main>
-    
-  
